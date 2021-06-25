@@ -46,7 +46,7 @@ def predict(image):
 
     #We replace the classifier of the original model
     model_transfer.classifier = dog_classifier
-    model_transfer.load_state_dict(torch.load('model_transfer.pt'))
+    model_transfer.load_state_dict(torch.load('model_transfer.pt', map_location=torch.device('cpu')))
 
     # load the image and return the predicted breed
     img = Image.open(image)
